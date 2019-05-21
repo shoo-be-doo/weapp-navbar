@@ -1,2 +1,4 @@
-<!--components/navbar/navbar.wxml-->
-<text>components/navbar/navbar.wxml</text>
+<view class="navbar"
+      style="{{ navbarStyle }}">
+
+</view>

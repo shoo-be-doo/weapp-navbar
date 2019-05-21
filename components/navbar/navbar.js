@@ -30,7 +30,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-	  navbarStyle: ''
+	  navbarStyle: '',
+	  backStyle: ''
   },
 
   /**
@@ -48,6 +49,7 @@ Component({
 		  let paddingTop = statusBarHeight + paddingBottom;
 		  let paddingLeft = windowWidth - right;
 		  let paddingRight = paddingLeft * 2 + width;
+		  // 导航栏基础样式
 		  let navbarStyle = `
 				padding-top: ${ paddingTop }px;
 				padding-right: ${ paddingRight }px;
@@ -57,10 +59,22 @@ Component({
 				font-size: ${ fontSizeSetting }px;
 				background: ${ this.properties.background };
 			`;
+		  // 返回按钮样式
+		  let backStyle = `
+		    width: ${ height }px;
+		  `;
 		  this.setData({
 			  navbarStyle,
+			  backStyle
 		  });
 	  },
+
+	  // 点击后退按钮
+	  handleTapBack() {
+	  	wx.navigateBack({
+			  delta: 1,
+		  });
+	  }
   },
 
 	/**

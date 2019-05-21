@@ -1,4 +1,4 @@
 <view class="navbar"
       style="{{ navbarStyle }}">
-
+	<view class="back" style="{{ backStyle }}" catchtap="handleTapBack"></view>
 </view>

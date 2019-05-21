@@ -18,12 +18,6 @@ Component({
 		  type: String,
 		  value: '#000'
 	  },
-
-	  // 标题
-	  title: {
-		  type: String,
-		  value: '标题'
-	  },
   },
 
   /**
@@ -31,7 +25,10 @@ Component({
    */
   data: {
 	  navbarStyle: '',
-	  backStyle: ''
+	  backStyle: '',
+	  titleTextColor: 'white',
+	  backVisible: false,
+	  homeVisible: false,
   },
 
   /**
@@ -61,12 +58,30 @@ Component({
 			`;
 		  // 返回按钮样式
 		  let backStyle = `
-		    width: ${ height }px;
+		    border-top: ${ this.data.titleTextColor } solid 2px ;
+        border-left: ${ this.data.titleTextColor } solid 2px ;
 		  `;
 		  this.setData({
 			  navbarStyle,
 			  backStyle
 		  });
+	  },
+
+	  /**
+	   * 初始化数据
+	   */
+	  initData() {
+		  const pages = getCurrentPages();
+		  const config = {
+		  	...__wxConfig.global.window,
+			  ...__wxAppCode__[`${pages[pages.length - 1].route}.json`]
+		  };
+		  this.setData({
+			  titleTextColor: config.navigationBarTextStyle || 'white',
+			  title: config.navigationBarTitleText,
+			  backVisible: pages.length > 1,
+			  homeVisible: pages.length > 1,
+		  })
 	  },
 
 	  // 点击后退按钮
@@ -81,6 +96,7 @@ Component({
 	 * 组件生命周期函数-在组件实例进入页面节点树时执行
 	 */
 	attached() {
+		this.initData();
 		this.initNavbarLayout();
 	}
 });

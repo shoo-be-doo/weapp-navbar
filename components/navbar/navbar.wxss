@@ -10,19 +10,13 @@
 .back {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   height: 100%;
   border-radius: 5px;
-  position: relative;
 }
-.back::before {
-  content: ' ';
-  display: block;
+.back > view {
   width: 10px;
   height: 10px;
-  position: absolute;
-  left: 3px;
-  border-top: #0F0F0F solid 2px;
-  border-left: #0F0F0F solid 2px;
+  margin-left: 3px;
   transform: rotate(-45deg);
 }

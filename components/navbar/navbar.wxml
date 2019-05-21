@@ -1,4 +1,6 @@
 <view class="navbar"
       style="{{ navbarStyle }}">
-	<view class="back" style="{{ backStyle }}" catchtap="handleTapBack"></view>
+	<view class="back" catchtap="handleTapBack">
+		<view style="{{ backStyle }}"></view>
+	</view>
 </view>

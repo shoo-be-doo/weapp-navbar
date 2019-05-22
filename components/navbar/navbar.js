@@ -18,6 +18,12 @@ Component({
 		  type: String,
 		  value: '#000'
 	  },
+
+	  // 标题
+	  title: {
+		  type: String,
+		  value: '标题看似到啦;翻开冬季分开三三代范老三但凡;老撒懂'
+	  }
   },
 
   /**
@@ -26,6 +32,7 @@ Component({
   data: {
 	  navbarStyle: '',
 	  backStyle: '',
+	  titleStyle: '',
 	  titleTextColor: 'white',
 	  backVisible: false,
 	  homeVisible: false,
@@ -61,9 +68,14 @@ Component({
 		    border-top: ${ this.data.titleTextColor } solid 2px ;
         border-left: ${ this.data.titleTextColor } solid 2px ;
 		  `;
+		  let titleStyle = `
+		    width: calc(100vw - ${ paddingRight * 2 }px);
+		    line-height: ${ height }px;
+		  `;
 		  this.setData({
 			  navbarStyle,
-			  backStyle
+			  backStyle,
+			  titleStyle
 		  });
 	  },
 
@@ -78,10 +90,9 @@ Component({
 		  };
 		  this.setData({
 			  titleTextColor: config.navigationBarTextStyle || 'white',
-			  title: config.navigationBarTitleText,
 			  backVisible: pages.length > 1,
 			  homeVisible: pages.length > 1,
-		  })
+		  });
 	  },
 
 	  // 点击后退按钮

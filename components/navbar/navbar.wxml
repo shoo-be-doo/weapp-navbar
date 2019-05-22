@@ -3,4 +3,7 @@
 	<view class="back" catchtap="handleTapBack">
 		<view style="{{ backStyle }}"></view>
 	</view>
+	<view class="title" style="{{ titleStyle }}">
+		{{ title }}
+	</view>
 </view>

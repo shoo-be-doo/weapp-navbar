@@ -1,4 +1,4 @@
-<navbar background="linear-gradient(to right, #FF0000, #0000FF)">
+<navbar background="linear-gradient(to right, #FF0000, #0000FF)" title="111">
 </navbar>
 <view>pages/index/index.wxml</view>
 <view>pages/index/index.wxml</view>

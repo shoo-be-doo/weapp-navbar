@@ -1,6 +1,5 @@
-<view class="navbar"
-      style="{{ _navbarStyle }}">
-	<view class="capsule" style="{{ _capsuleStyle }}" wx:if="{{ _backVisible || _homeVisible }}">
+<view class="navbar" style="{{ _navbarStyle }}">
+	<view class="capsule" style="{{ _capsuleStyle }}">
 		<view class="capsule-item back" style="{{ _capsuleItemStyle }}" hover-class="hover-class" catchtap="handleTapBack" wx:if="{{ _backVisible }}">
 			<view style="{{ _backStyle }}"></view>
 		</view>

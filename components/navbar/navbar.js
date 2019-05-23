@@ -77,21 +77,26 @@ Component({
 		  let _titleStyle = `
 		    width: calc(100vw - ${ paddingRight * 2 }px);
 		    line-height: ${ height }px;
+		    color: ${ this.data._titleTextColor };
 		  `;
 
 		  // 返回按钮样式
 		  let _backStyle = `
-		    border-top: ${ this.data._titleTextColor } solid 2px ;
-        border-left: ${ this.data._titleTextColor } solid 2px ;
+		    border-top: ${ this.data._titleTextColor } solid 2px;
+        border-left: ${ this.data._titleTextColor } solid 2px;
 		  `;
 
 		  // 胶囊样式
 		  let _capsuleStyle = `
 		    border-radius: ${ height }px;
 		    margin-right: ${ paddingLeft }px;
-		    background: ${ this.data._titleTextColor === 'black' ? '#FFFFFF90' : '#00000028' };
-		    border: ${ this.data._titleTextColor === 'black' ? '#00000015' : '#FFFFFF40' } solid 0.5px;
 		  `;
+		  if (this.data._backVisible || this.data._homeVisible) {
+			  _capsuleStyle += `
+				  background: ${ this.data._titleTextColor === 'black' ? '#FFFFFF90' : '#00000028' };
+			    border: ${ this.data._titleTextColor === 'black' ? '#00000015' : '#FFFFFF40' } solid 0.5px;
+			  `;
+		  }
 
 		  // 胶囊按钮样式
 		  let _capsuleItemStyle = `
@@ -140,7 +145,7 @@ Component({
 
 	  // 点击主页按钮
 	  handleTapHome() {
-	  	wx.switchTab({
+	  	wx.reLaunch({
 			  url: this.data.homeUrl,
 		  });
 	  }

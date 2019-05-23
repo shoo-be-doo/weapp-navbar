@@ -1,2 +1,4 @@
-<navbar background="white"></navbar>
+<navbar background="white">
+	<view class="search" style=""></view>
+</navbar>
 <text>pages/index/index.wxml</text>

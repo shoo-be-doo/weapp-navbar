@@ -25,12 +25,6 @@ Component({
 		  value: ''
 	  },
 
-	  // 是否展示搜索
-	  search: {
-		  type: Boolean,
-		  value: false
-	  },
-
 	  // 主页路径
 	  homeUrl: {
 		  type: Boolean,
@@ -45,7 +39,6 @@ Component({
 	  _navbarStyle: '',
 	  _backStyle: '',
 	  _titleStyle: '',
-	  _searchStyle: '',
 	  _capsuleStyle: '',
 	  _capsuleItemStyle: '',
 	  _capsuleLineStyle: '',
@@ -92,11 +85,6 @@ Component({
         border-left: ${ this.data._titleTextColor } solid 2px ;
 		  `;
 
-		  // 搜索样式
-		  let _searchStyle = `
-		    border-radius: ${ height }px;
-		  `;
-
 		  // 胶囊样式
 		  let _capsuleStyle = `
 		    border-radius: ${ height }px;
@@ -122,7 +110,6 @@ Component({
 			  _capsuleStyle,
 			  _capsuleItemStyle,
 			  _capsuleLineStyle,
-			  _searchStyle,
 		  });
 	  },
 

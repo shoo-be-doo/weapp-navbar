@@ -2,6 +2,7 @@
 const systemInfo = wx.getSystemInfoSync();
 // 胶囊按钮信息
 const menuButtonRect = wx.getMenuButtonBoundingClientRect();
+console.log(menuButtonRect)
 Component({
   /**
    * 组件的属性列表
@@ -22,7 +23,12 @@ Component({
 	  // 标题
 	  title: {
 		  type: String,
-		  value: '标题看似到啦;翻开冬季分开三三代范老三但凡;老撒懂'
+		  value: ''
+	  },
+
+	  search: {
+		  type: Boolean,
+		  value: true
 	  }
   },
 
@@ -30,9 +36,12 @@ Component({
    * 组件的初始数据
    */
   data: {
-	  navbarStyle: '',
-	  backStyle: '',
-	  titleStyle: '',
+	  _navbarStyle: '',
+	  _backStyle: '',
+	  _titleStyle: '',
+	  _searchStyle: '',
+	  _capsuleStyle: '',
+	  _capsuleItemStyle: '',
 	  titleTextColor: 'white',
 	  backVisible: false,
 	  homeVisible: false,
@@ -54,7 +63,7 @@ Component({
 		  let paddingLeft = windowWidth - right;
 		  let paddingRight = paddingLeft * 2 + width;
 		  // 导航栏基础样式
-		  let navbarStyle = `
+		  let _navbarStyle = `
 				padding-top: ${ paddingTop }px;
 				padding-right: ${ paddingRight }px;
 				padding-bottom: ${ paddingBottom }px;
@@ -63,19 +72,44 @@ Component({
 				font-size: ${ fontSizeSetting }px;
 				background: ${ this.properties.background };
 			`;
-		  // 返回按钮样式
-		  let backStyle = `
-		    border-top: ${ this.data.titleTextColor } solid 2px ;
-        border-left: ${ this.data.titleTextColor } solid 2px ;
-		  `;
-		  let titleStyle = `
+
+		  // 标题样式
+		  let _titleStyle = `
 		    width: calc(100vw - ${ paddingRight * 2 }px);
 		    line-height: ${ height }px;
 		  `;
+
+		  // 返回按钮样式
+		  let _backStyle = `
+		    border-top: ${ this.data.titleTextColor } solid 2px ;
+        border-left: ${ this.data.titleTextColor } solid 2px ;
+		  `;
+
+		  // 搜索样式
+		  let _searchStyle = `
+		    border-radius: ${ height }px;
+		  `;
+
+		  // 胶囊样式
+		  let _capsuleStyle = `
+		    border-radius: ${ height }px;
+		    margin-right: ${ paddingLeft }px;
+		    background: ${ this.data.titleTextColor === 'black' ? '#FFFFFF90' : '#00000028' };
+		    border: ${ this.data.titleTextColor === 'black' ? '#00000015' : '#FFFFFF40' } solid 0.5px;
+		  `;
+
+		  // 胶囊按钮样式
+		  let _capsuleItemStyle = `
+		    width: ${ width / 2 }px;
+		  `;
+
 		  this.setData({
-			  navbarStyle,
-			  backStyle,
-			  titleStyle
+			  _navbarStyle,
+			  _backStyle,
+			  _titleStyle,
+			  _capsuleStyle,
+			  _capsuleItemStyle,
+			  _searchStyle,
 		  });
 	  },
 

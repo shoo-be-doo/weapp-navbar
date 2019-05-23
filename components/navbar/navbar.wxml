@@ -1,9 +1,22 @@
 <view class="navbar"
-      style="{{ navbarStyle }}">
-	<view class="back" catchtap="handleTapBack">
-		<view style="{{ backStyle }}"></view>
+      style="{{ _navbarStyle }}">
+	<view class="capsule" style="{{ _capsuleStyle }}">
+		<view class="capsule-item" style="{{ _capsuleItemStyle }}" catchtap="handleTapBack">
+			<view class="back">
+				<view style="{{ _backStyle }}"></view>
+			</view>
+		</view>
+<!--		<view class="capsule-item" style="{{ _capsuleItemStyle }}" catchtap="handleTapBack">-->
+<!--			<view style="{{ _backStyle }}"></view>-->
+<!--		</view>-->
 	</view>
-	<view class="title" style="{{ titleStyle }}">
-		{{ title }}
-	</view>
+
+	<block wx:if="{{ search }}">
+		<view class="search" style="{{ _searchStyle }}"></view>
+	</block>
+	<block wx:else>
+		<view class="title" style="{{ _titleStyle }}">
+			{{ title }}
+		</view>
+	</block>
 </view>

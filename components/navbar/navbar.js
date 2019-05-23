@@ -42,9 +42,9 @@ Component({
 	  _capsuleStyle: '',
 	  _capsuleItemStyle: '',
 	  _capsuleLineStyle: '',
-	  titleTextColor: 'white',
-	  backVisible: false,
-	  homeVisible: false,
+	  _titleTextColor: 'white',
+	  _backVisible: false,
+	  _homeVisible: false,
   },
 
   /**
@@ -81,8 +81,8 @@ Component({
 
 		  // 返回按钮样式
 		  let _backStyle = `
-		    border-top: ${ this.data.titleTextColor } solid 2px ;
-        border-left: ${ this.data.titleTextColor } solid 2px ;
+		    border-top: ${ this.data._titleTextColor } solid 2px ;
+        border-left: ${ this.data._titleTextColor } solid 2px ;
 		  `;
 
 		  // 搜索样式
@@ -94,8 +94,8 @@ Component({
 		  let _capsuleStyle = `
 		    border-radius: ${ height }px;
 		    margin-right: ${ paddingLeft }px;
-		    background: ${ this.data.titleTextColor === 'black' ? '#FFFFFF90' : '#00000028' };
-		    border: ${ this.data.titleTextColor === 'black' ? '#00000015' : '#FFFFFF40' } solid 0.5px;
+		    background: ${ this.data._titleTextColor === 'black' ? '#FFFFFF90' : '#00000028' };
+		    border: ${ this.data._titleTextColor === 'black' ? '#00000015' : '#FFFFFF40' } solid 0.5px;
 		  `;
 
 		  // 胶囊按钮样式
@@ -105,7 +105,7 @@ Component({
 
 		  // 胶囊线条样式
 		  let _capsuleLineStyle = `
-		    border-left: ${ this.data.titleTextColor === 'black' ? '#00000015' : '#FFFFFF40' } solid 0.5px;
+		    border-left: ${ this.data._titleTextColor === 'black' ? '#00000015' : '#FFFFFF40' } solid 0.5px;
 		  `;
 
 		  this.setData({
@@ -128,15 +128,24 @@ Component({
 		  	...__wxConfig.global.window,
 			  ...__wxAppCode__[`${pages[pages.length - 1].route}.json`]
 		  };
+		  // 场景值
+		  const { scene } = wx.getLaunchOptionsSync();
 		  this.setData({
-			  titleTextColor: config.navigationBarTextStyle || 'white',
-			  backVisible: pages.length > 1,
-			  homeVisible: pages.length > 1,
+			  _titleTextColor: config.navigationBarTextStyle || 'white',
+			  _backVisible: pages.length > 1,
+			  _homeVisible: pages.length > 1 || [1007, 1008, 1014].indexOf(scene) > -1,
 		  });
 	  },
 
 	  // 点击后退按钮
 	  handleTapBack() {
+	  	wx.navigateBack({
+			  delta: 1,
+		  });
+	  },
+
+	  // 点击后退按钮
+	  handleTapHome() {
 	  	wx.navigateBack({
 			  delta: 1,
 		  });

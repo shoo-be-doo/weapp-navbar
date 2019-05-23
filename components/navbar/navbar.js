@@ -27,7 +27,7 @@ Component({
 
 	  search: {
 		  type: Boolean,
-		  value: true
+		  value: false
 	  }
   },
 
@@ -41,6 +41,7 @@ Component({
 	  _searchStyle: '',
 	  _capsuleStyle: '',
 	  _capsuleItemStyle: '',
+	  _capsuleLineStyle: '',
 	  titleTextColor: 'white',
 	  backVisible: false,
 	  homeVisible: false,
@@ -102,12 +103,18 @@ Component({
 		    width: ${ width / 2 }px;
 		  `;
 
+		  // 胶囊线条样式
+		  let _capsuleLineStyle = `
+		    border-left: ${ this.data.titleTextColor === 'black' ? '#00000015' : '#FFFFFF40' } solid 0.5px;
+		  `;
+
 		  this.setData({
 			  _navbarStyle,
 			  _backStyle,
 			  _titleStyle,
 			  _capsuleStyle,
 			  _capsuleItemStyle,
+			  _capsuleLineStyle,
 			  _searchStyle,
 		  });
 	  },

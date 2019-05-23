@@ -1,14 +1,13 @@
 <view class="navbar"
       style="{{ _navbarStyle }}">
 	<view class="capsule" style="{{ _capsuleStyle }}">
-		<view class="capsule-item" style="{{ _capsuleItemStyle }}" catchtap="handleTapBack">
-			<view class="back">
-				<view style="{{ _backStyle }}"></view>
-			</view>
+		<view class="capsule-item back" style="{{ _capsuleItemStyle }}" hover-class="hover-class" catchtap="handleTapBack">
+			<view style="{{ _backStyle }}"></view>
 		</view>
-<!--		<view class="capsule-item" style="{{ _capsuleItemStyle }}" catchtap="handleTapBack">-->
-<!--			<view style="{{ _backStyle }}"></view>-->
-<!--		</view>-->
+		<view class="capsule-line" style="{{ _capsuleLineStyle }}"></view>
+		<view class="capsule-item home" style="{{ _capsuleItemStyle }}" hover-class="hover-class" catchtap="handleTapBack">
+			<image src="svg/home_{{ titleTextColor }}.svg"> </image>
+		</view>
 	</view>
 
 	<block wx:if="{{ search }}">

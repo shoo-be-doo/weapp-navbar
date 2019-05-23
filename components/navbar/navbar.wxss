@@ -8,30 +8,40 @@
   z-index: 100;
   top: 0;
   left: 0;
+  border-bottom: #000000 solid 1px;
+}
+
+.hover-class {
+  background-color: #b8b8b8;
 }
 
 .capsule {
   height: 100%;
   display: flex;
   box-sizing: border-box;
-
-  /*border: #00000015 solid 0.5px;*/
+  align-items: center;
+  overflow: hidden;
 }
 .capsule-item {
   height: 100%;
-}
-.back {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
   width: 100%;
 }
 .back > view {
   width: 10px;
   height: 10px;
-  margin-left: 5px;
+  margin-left: 8px;
   transform: rotate(-45deg);
+}
+.home > image {
+  width: 20px;
+  height: 20px;
+  margin-left: -3px;
+}
+.capsule-line {
+  height: 60%;
 }
 
 .title {

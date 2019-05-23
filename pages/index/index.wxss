@@ -1,7 +1,3 @@
-/* pages/index/index.wxss */
-.search {
-  width: 100%;
-  height: 100%;
-  border-radius: 32px;
-  background-color: #ccc;
+page {
+  padding-top: 88px;
 }

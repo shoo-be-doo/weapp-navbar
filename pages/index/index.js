@@ -62,5 +62,11 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+	onTap() {
+  	wx.navigateTo({
+		  url: '/pages/index2/index2'
+	  })
+	}
 })

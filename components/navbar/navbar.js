@@ -2,7 +2,6 @@
 const systemInfo = wx.getSystemInfoSync();
 // 胶囊按钮信息
 const menuButtonRect = wx.getMenuButtonBoundingClientRect();
-console.log(menuButtonRect)
 Component({
   /**
    * 组件的属性列表

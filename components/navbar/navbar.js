@@ -138,7 +138,7 @@ Component({
 		  });
 	  },
 
-	  // 点击后退按钮
+	  // 点击主页按钮
 	  handleTapHome() {
 	  	wx.switchTab({
 			  url: this.data.homeUrl,

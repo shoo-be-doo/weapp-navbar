@@ -25,9 +25,16 @@ Component({
 		  value: ''
 	  },
 
+	  // 是否展示搜索
 	  search: {
 		  type: Boolean,
 		  value: false
+	  },
+
+	  // 主页路径
+	  homeUrl: {
+		  type: Boolean,
+		  value: '/pages/index/index'
 	  }
   },
 
@@ -146,8 +153,8 @@ Component({
 
 	  // 点击后退按钮
 	  handleTapHome() {
-	  	wx.navigateBack({
-			  delta: 1,
+	  	wx.switchTab({
+			  url: this.data.homeUrl,
 		  });
 	  }
   },

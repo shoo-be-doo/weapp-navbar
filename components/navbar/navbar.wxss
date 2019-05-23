@@ -32,13 +32,13 @@
 .back > view {
   width: 10px;
   height: 10px;
-  margin-left: 8px;
+  margin-left: 5px;
   transform: rotate(-45deg);
 }
 .home > image {
   width: 20px;
   height: 20px;
-  margin-left: -3px;
+  /*margin-left: -3px;*/
 }
 .capsule-line {
   height: 60%;
